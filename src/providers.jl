@@ -97,7 +97,7 @@ Satellite() = LeafletProvider(
     "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
     Dict(
         :maxZoom => 20,
-        :attribution => "Google"
+        :attribution => """Google"""
     )
 )
 
@@ -105,7 +105,7 @@ Terrain() = LeafletProvider(
     "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
     Dict(
         :maxZoom => 20,
-        :attribution => "Google"
+        :attribution => """Google"""
     )
 )
 
@@ -113,7 +113,7 @@ EsriSatellite() = = LeafletProvider(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     Dict(
         :maxZoom => 20,
-        :attribution => "Esri"
+        :attribution => """Esri"""
     )
 )
 
