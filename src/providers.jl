@@ -11,8 +11,8 @@ Reference: `https://github.com/leaflet-extras/leaflet-providers/blob/cc8a10c9aa0
 module Provider
 
 import JSON3
-using EarthEngine
-Initialize()
+
+
 """
     LeafletProvider
 - `url`:
@@ -117,6 +117,34 @@ EsriSatellite() = LeafletProvider(
         :attribution => "Esri"
     )
 )
+
+"""
+options to add tile layer generated in Google Earth Engine
+"""
+
+function EarthEngineLayer(eeurl::String)
+    provider = LeafletProvider(
+        eeurl,
+        Dict{Symbol,Any}(
+            :maxZoom => 20,
+            :attribution => """&copy; <a href="https://earthengine.google.com/terms/">Google Earth Engine</a>"""
+        )
+    )
+    return provider
+end
+
+# function EarthEngineMap(eeObject, visParams::Dict)
+#     map_id_dict = ee.Image(eeObject).getMapId(visParams)
+#     map_url = map_id_dict["tile_fetcher"].url_format
+#     provider = LeafletProvider(
+#         map_url,
+#         Dict{Symbol,Any}(
+#             :maxZoom => 20,
+#             :attribution => """&copy; <a href="https://earthengine.google.com/terms/">Google Earth Engine</a>"""
+#         )
+#     )
+#     return provider
+# end
 
 """
 Options for `variant`: `cycle` (default), `transport`, `transport-dark`,
