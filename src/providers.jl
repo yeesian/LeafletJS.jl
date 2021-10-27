@@ -11,7 +11,8 @@ Reference: `https://github.com/leaflet-extras/leaflet-providers/blob/cc8a10c9aa0
 module Provider
 
 import JSON3
-
+using EarthEngine
+Initialize()
 """
     LeafletProvider
 - `url`:
