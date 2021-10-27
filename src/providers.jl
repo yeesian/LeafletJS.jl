@@ -93,7 +93,7 @@ OpenTopoMap() = LeafletProvider(
 Satellite imagery and terrain basemaps. More WMS layers can be found at:
 https://github.com/giswqs/geemap/blob/e4590daba564c4d75860f1980b0b7e9dbf55fd1b/geemap/basemaps.py
 """
-Satellite() = LeafletProvider(
+Terrain() = LeafletProvider(
     "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
     Dict(
         :maxZoom => 20,
@@ -101,7 +101,7 @@ Satellite() = LeafletProvider(
     )
 )
 
-Terrain() = LeafletProvider(
+Satellite() = LeafletProvider(
     "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
     Dict(
         :maxZoom => 20,
