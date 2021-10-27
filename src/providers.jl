@@ -90,6 +90,34 @@ OpenTopoMap() = LeafletProvider(
 )
 
 """
+Satellite imagery and terrain basemaps. More WMS layers can be found at:
+https://github.com/giswqs/geemap/blob/e4590daba564c4d75860f1980b0b7e9dbf55fd1b/geemap/basemaps.py
+"""
+Satellite() = LeafletProvider(
+    "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
+    Dict(
+        :maxZoom => 20,
+        :attribution => "Google"
+    )
+)
+
+Terrain() = LeafletProvider(
+    "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+    Dict(
+        :maxZoom => 20,
+        :attribution => "Google"
+    )
+)
+
+EsriSatellite() = = LeafletProvider(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    Dict(
+        :maxZoom => 20,
+        :attribution => "Esri"
+    )
+)
+
+"""
 Options for `variant`: `cycle` (default), `transport`, `transport-dark`,
 `spinal-map`, `landscape`, `outdoors`, `pioneer`
 """
@@ -169,21 +197,6 @@ function Stamen(variant::Symbol = :toner)
     return provider
 end
 
-
-"""
-options to add tile layer generated in Google Earth Engine
-"""
-
-function EarthEngineLayer(eeurl::String)
-    provider = LeafletProvider(
-        eeurl,
-        Dict{Symbol,Any}(
-            :maxZoom => 20,
-            :attribution => """&copy; <a href="https://earthengine.google.com/terms/">Google Earth Engine</a>"""
-        )
-    )
-    return provider
-end
 """
 options for `variant`: `World_Street_Map` (default), `Specialty/DeLorme_World_Base_Map`,
 `World_Topo_Map`, `World_Imagery`, `World_Terrain_Base`, `World_Shaded_Relief`,
