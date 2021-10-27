@@ -164,33 +164,7 @@ MapBox(accesstoken) = LeafletProvider(
         :attribution => """Imagery from <a href="http://mapbox.com/about/maps/">MapBox</a> &mdash; Map data {attribution.OpenStreetMap}"""
     )
 )
-"""
-options to add tile layer generated in Google Earth Engine
-"""
 
-function EarthEngineLayer(eeurl::String)
-    provider = LeafletProvider(
-        eeurl,
-        Dict{Symbol,Any}(
-            :maxZoom => 20,
-            :attribution => """&copy; <a href="https://earthengine.google.com/terms/">Google Earth Engine</a>"""
-        )
-    )
-    return provider
-end
-
-function EarthEngineMap(eeObject, visParams::Dict)
-    map_id_dict = ee.Image(eeObject).getMapId(visParams)
-    map_url = map_id_dict["tile_fetcher"].url_format
-    provider = LeafletProvider(
-        map_url,
-        Dict{Symbol,Any}(
-            :maxZoom => 20,
-            :attribution => """&copy; <a href="https://earthengine.google.com/terms/">Google Earth Engine</a>"""
-        )
-    )
-    return provider
-end
 """
 options for `variant`: `toner` (default), `toner-background`, `toner-hybrid`,
 `toner-lines`, `toner-labels`, `toner-lite`, `watercolor`, `terrain`,
