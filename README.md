@@ -6,11 +6,4 @@
 
 [![codecov.io](http://codecov.io/github/yeesian/LeafletJS.jl/coverage.svg?branch=master)](http://codecov.io/github/yeesian/LeafletJS.jl?branch=master)
 
-```julia
-LeafletMap([
-        Layer(df, geomcol, color=..., size=...),
-        Layer(df, geomcol, )
-    ],
-    [center]
-)
-```
+**DEPRECATED: PLEASE USE https://github.com/JuliaGeo/Leaflet.jl INSTEAD**
